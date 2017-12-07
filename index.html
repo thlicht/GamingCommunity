@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<html lang = "en">
+    <header>
+        <meta charset="UTF-8">
+        <title>Gaming Community</title>
+        <link rel = "stylesheet" href = "CSS/IndexCSS.cs">
+    </header>
+
+    <head>
+        <h1>Welcome to a gaming community tool</h1>
+    </head>
+
+    <main>
+        <section id = "Description">
+            <h3>This website provides people with a way to find people who play the same kinds of games they do. <br>
+                There is also a tool to create an event or look through created events that people are hosting.
+            </h3>
+        </section>
+        <section id = "Community_Board">
+            <p>Use the selector below to filter your search of community created events!</p>
+            <form id = "Community_Find" action = "PHP/DisplayGroups.php" method = "POST">
+                <label for = "type">Type</label>
+                <select id = "typeSelector" name = "type">
+                    <option value = ""></option>
+                    <option value = "rpg">RPG</option>
+                    <option value = "shooter">Shooters</option>
+                    <option value = "action_adv">Action and Adventure</option>
+                    <option value = "mmo">MMOs</option>
+                    <option value = "casual">Casual</option>
+                </select>
+                <br>
+                <input type = "submit" id = "typeSubmit" name = "typeSubmiter" value = "Submit">
+
+            </form>
+            <p>If you want to create your own community event, enter the details below!</p>
+            <form id = "Community_Create">
+
+
+            </form>
+
+
+
+        </section>
+        <section id = "People_Finder">
+            <form id = "Input" action = "PHP/DisplayMembers.php" method = "POST">
+                First Name<input type = "text" name = "FirstName" id = "FnameBox"><br>
+                Last Name<input type = "text" name = "LastName" id = "LnameBox"><br>
+                PC<input type = "radio" name = "PC" id = "PCcheck"><br>
+                Xbox<input type = "radio" name = "Xbox" id = "XboxCheck"><br>
+                Playstation<input type = "radio" name = "Playstation" id = "PScheck"><br>
+                <textarea rows = "5" cols = "50"></textarea>
+            </form>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+    </main>
+</html>
