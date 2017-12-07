@@ -38,3 +38,5 @@ for ($i=1; $i<=$total_pages; $i++) {  // print links for all pages
 }; 
 ?>
 */
+
+https://developers.google.com/maps/documentation/javascript/adding-a-google-map link on how to place a google map in your website, going to use this to show the location of in-person meet-ups.
