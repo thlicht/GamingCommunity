@@ -1,4 +1,5 @@
 ﻿# GamingCommunity
+ /*
 <?php
 if (isset($_GET["page"])) { $page  = $_GET["page"]; } else { $page=1; };
 $start_from = ($page-1) * $results_per_page;
@@ -36,3 +37,4 @@ for ($i=1; $i<=$total_pages; $i++) {  // print links for all pages
             echo ">".$i."</a> "; 
 }; 
 ?>
+*/
