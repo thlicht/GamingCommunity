@@ -4,7 +4,8 @@
     <header>
         <meta charset="UTF-8">
         <title>Gaming Community</title>
-        <link rel = "stylesheet" href = "CSS/IndexCSS.cs">
+        <link rel = "stylesheet" href = "CSS/IndexCSS.css">
+        <script src ="JavaScript/indexJS.js"></script>
     </header>
 
     <head>
@@ -30,12 +31,29 @@
                     <option value = "casual">Casual</option>
                 </select>
                 <br>
+                <h3>Platform(s)</h3>
+                <input type = "checkbox" name = "Platform" value = "PC">PC <br>
+                <input type = "checkbox" name = "Platform" value = "Xbox">Xbox<br>
+                <input type = "checkbox" name = "Platform" value = "Playstation">Playstation<br>
+                <br>
                 <input type = "submit" id = "typeSubmit" name = "typeSubmiter" value = "Submit">
 
             </form>
             <p>If you want to create your own community event, enter the details below!</p>
             <form id = "Community_Create">
-
+                <label for = "EventName">Name of Event</label><br>
+                <input type = "text" name = "EventName" id = "Event"><br>
+                <label for = "Online">Online Only?</label><br>
+                <input type ="checkbox" name = "Online" id ="online" onclick = "DisableLocation()"><br>
+                <label>Event Location</label><br>
+                County<input type = "text" name = "County" id = "country"><br>
+                State/Province<input type = "text" name = "State" id = "state"><br>
+                City<input type = "text" name = "City" id = "city"><br>
+                Street Address<input type = "text" name = "address" id = "addr"><br>
+                <label for = "DateTime">Date and time of Event</label><br>
+                <input type = "date" name = "DateTime" id = "Date"><input type = "time" name = "DateTime" id = "timestamp"><br>
+                <label for ="EventDescription">Description of your event(1000 character limit):</label><br>
+                <textarea rows = "10" cols = "100" name = "EventDescription" placeholder="Ex. What to bring, length of event,etc...."></textarea>
 
             </form>
 
@@ -46,10 +64,17 @@
             <form id = "Input" action = "PHP/DisplayMembers.php" method = "POST">
                 First Name<input type = "text" name = "FirstName" id = "FnameBox"><br>
                 Last Name<input type = "text" name = "LastName" id = "LnameBox"><br>
-                PC<input type = "radio" name = "PC" id = "PCcheck"><br>
-                Xbox<input type = "radio" name = "Xbox" id = "XboxCheck"><br>
-                Playstation<input type = "radio" name = "Playstation" id = "PScheck"><br>
-                <textarea rows = "5" cols = "50"></textarea>
+                
+                <input type = "radio" name = "PC" id = "PCcheck">
+                <label for = "PC">PC</label><br>
+                
+                <input type = "radio" name = "Xbox" id = "XboxCheck">
+                <label for = "Xbox">Xbox</label><br>
+                
+                <input type = "radio" name = "Playstation" id = "PScheck">
+                <label for ="Playstation">Playstation</label><br>
+                <label for = "">Your Bio:(250 character limit)</label><br>
+                <textarea rows = "5" cols = "50" name = "SelfDescription" placeholder="Ex. PSN name/Steam ID/Xbox Live name"></textarea>
             </form>
 
 
