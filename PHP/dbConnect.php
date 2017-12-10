@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli("localhost" , "root", "Easelm93$", "GamesCommunity");
+$conn = new mysqli("localhost" , "root", "Easelm93$", "gamescommunity");
 
     if(!$conn)
     {

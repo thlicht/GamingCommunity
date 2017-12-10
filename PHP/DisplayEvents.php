@@ -1,8 +1,15 @@
 <?php
     include 'GeneralFunctions.php';
+    $type = $_POST['EventType'];
+    $platforms = GetCheckedPlatforms();
+    $location = $_POST['loc'];
     $conn = include 'dbConnect.php';
-    $query = "SELECT * FROM members";
+    $query = "SELECT * FROM events";
     $result = mysqli_query($conn, $query);
+
+
+
+
 ?>
 
 
@@ -11,17 +18,14 @@
     <main>
         <table>
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Playstation</th>
-                <th>Xbox</th>
-                <th>PC</th>
+                <th>Event Name</th>
+                <th>Location</th>
                 <th>Description</th>
             </tr>
             <?php
                 while($row = mysqli_fetch_assoc($result))
                 {
-                    echo "<tr><td>{$row['FirstName']} </td><td>{$row['LastName']} </td><td>{$row['Playstation']} </td><td>{$row['Xbox']} </td><td>{$row['PC']} </td><td>{$row['Description']} </td></tr>\n" ;
+                    echo "<tr><td>{$row['EventName']} </td><td>{$row['Location']} </td><td>{$row['Description']} </td></tr>\n" ;
                 }
             ?>
         </table>
