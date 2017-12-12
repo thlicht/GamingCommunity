@@ -24,17 +24,19 @@ function DisableLocation()
 function CheckCommunity()
 {
     var Name = $("CommName");
-    var NameCheck = /^ [a-zA-Z0-9]{50} $/;
+    var NameCheck = /^[a-zA-Z0-9 ]{1,50}$/;
     var Type = $("Type");
-    var Platforms = document.getElementsByClassName("Platform");
+    var Platforms = document.getElementsByClassName("Plats4");
     var desc = $("Commdesc");
 
     if(Name.value == "")
     {
+        alert("No name");
         return false;
     }
     else if (!Name.value.match(NameCheck))
     {
+        alert("bad name")
         return false;
     }
 
@@ -46,14 +48,27 @@ function CheckCommunity()
             TypeChecked = true;
         }
     }
-
-    if(TypeChecked)
+    if(!TypeChecked)
     {
+        alert ("no type");
         return false;
     }
     
     if(desc.value == "")
     {
+        alert ("no desc");
+        return false;
+    }
+    var manager = $("email");
+    var emailFrom = /^[a-zA-Z0-9]{1,}[@]{1}([a-zA-Z0-9]{1,20}[.]{1}){1,4}[a-zA-Z]{3}$/;
+    if(manager.value = "")
+    {
+        alert ("no email");
+        return false;
+    }
+    else if(!manager.value.match(emailFrom))
+    {
+        alert ("bad email");
         return false;
     }
 
@@ -147,32 +162,44 @@ function PlatformIDs()
     var PS = $("PScheck");
     var PC = $("PCcheck");
 
-    if(Xbox.checked)
-    {
-        $("xboxid").disabled = false;
-    }
-    else
-    {
-        $("xboxid").disabled = true;
+    $("xboxid").disabled = true;
+    $("psid").disabled = true;
+    $("pcid").disabled = true;
+
+    Xbox.onclick = function(){
+        if(this.checked)
+        {
+            $("xboxid").disabled = false;
+        }
+        else
+        {
+            $("xboxid").disabled = true;
+        }
     }
 
-    if(PS.checked)
-    {
-        $("psid").disabled = false;
-    }
-    else
-    {
-        $("psid").disabled = true;
+    PS.onclick = function(){
+        if(this.checked)
+        {
+            $("psid").disabled = false;
+        }
+        else
+        {
+            $("psid").disabled = true;
+        }
     }
 
-    if(PC.checked)
-    {   
-        $("pcid").disabled = false;
+    PC.onclick = function(){
+        if(this.checked)
+        {   
+            $("pcid").disabled = false;
+        }
+        else
+        {
+            $("pcid").disabled = true;
+        }
     }
-    else
-    {
-        $("pcid").disabled = true;
-    }
+
+    
 }
 
 function CheckPersonal()
@@ -254,7 +281,88 @@ function OnloadFunctions()
 {
     CreateAccordion();
     PlatformIDs();
-}
+    document.getElementsByClassName("Plats1")[0].checked = false;
+    document.getElementsByClassName("Plats2")[0].checked = false;
+    document.getElementsByClassName("Plats3")[0].checked = false;
+    document.getElementsByClassName("Plats4")[0].checked = false;
+    document.getElementsByClassName("Plats1")[0].onclick = function(){
+        var Checks = document.getElementsByClassName("Plats1");
+        
+        if(Checks[0].checked)
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].checked = false;
+                Checks[i].disabled = true;
+            }
+        }
+        else
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].disabled = false;
+            }
+        }
+    
+    }
 
+    document.getElementsByClassName("Plats2")[0].onclick = function(){
+        var Checks = document.getElementsByClassName("Plats2");
+        if(Checks[0].checked)
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].checked = false;
+                Checks[i].disabled = true;
+            }
+        }
+        else
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].disabled = false;
+            }
+        }
+    }
+
+    document.getElementsByClassName("Plats3")[0].onclick = function(){
+        var Checks = document.getElementsByClassName("Plats3");
+        if(Checks[0].checked)
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].checked = false;
+                Checks[i].disabled = true;
+            }
+        }
+        else
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].disabled = false;
+            }
+        }
+    }
+
+    document.getElementsByClassName("Plats4")[0].onclick = function(){
+        var Checks = document.getElementsByClassName("Plats4");
+        if(Checks[0].checked)
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].checked = false;
+                Checks[i].disabled = true;
+            }
+        }
+        else
+        {
+            for(var i = 1; i < Checks.length; i++)
+            {
+                Checks[i].disabled = false;
+            }
+        }
+    }
+
+}
 
 window.addEventListener("load", OnloadFunctions, false);
